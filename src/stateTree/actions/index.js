@@ -26,7 +26,7 @@ export const getNotes = () => dispatch => {
     type: GET_NOTES_START
   })
   axios
-    .get('/api/notes/all')
+    .get('https://lambda-notes-be.herokuapp.com/api/notes/all')
     .then(response => {
       dispatch({
         type: GET_NOTES_SUCCESS,
@@ -46,7 +46,7 @@ export const addNote = (noteObject, history) => dispatch => {
     type: ADD_NOTE_START
   })
   axios
-    .post('/api/notes/create', noteObject, { headers: { 'Content-Type': 'application/json' }})
+    .post('https://lambda-notes-be.herokuapp.com/api/notes/create', noteObject, { headers: { 'Content-Type': 'application/json' }})
     .then(response => {
       dispatch({
         type: ADD_NOTE_SUCCESS,
@@ -65,7 +65,7 @@ export const addNote = (noteObject, history) => dispatch => {
 export const deleteNote = (id, history) => dispatch => {
   console.log('id --> ', id);
   axios
-    .delete('/api/notes/delete/'+id)
+    .delete('https://lambda-notes-be.herokuapp.com/api/notes/delete/'+id)
     .then(response => {
       dispatch({
         type: DELETE_NOTE_SUCCESS,
@@ -91,7 +91,7 @@ export const targetNoteSet = (noteObject) => {
 
 export const noteDetail = (noteID) => dispatch => {
   axios
-    .get('/api/notes/'+noteID)
+    .get('https://lambda-notes-be.herokuapp.com/api/notes/'+noteID)
     .then(response => {
       dispatch({
         type: NOTE_DETAIL_SUCCESS,
@@ -116,7 +116,7 @@ export const updateNoteSet = (noteObject, history) => {
 
 export const updateNote = (noteID, noteObject, history) => dispatch => {
   axios
-    .put('/api/notes/edit/'+noteID, noteObject, { headers: { 'Content-Type': 'application/json' }})
+    .put('https://lambda-notes-be.herokuapp.com/api/notes/edit/'+noteID, noteObject, { headers: { 'Content-Type': 'application/json' }})
     .then(response => {
       dispatch({
         type: UPDATE_NOTE_SUCCESS,
