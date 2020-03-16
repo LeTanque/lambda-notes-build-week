@@ -1,7 +1,0 @@
-{
-    "build": {
-        "env": {
-            "SERVER_PORT": "@server_port"
-        }
-    }
-}
